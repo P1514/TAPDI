@@ -139,6 +139,40 @@ namespace SS_OpenCV
             return hist;
         }
 
+        public static int[,] Histogram_RGB(Image<Bgr, byte> img)
+        {
+            unsafe
+            {
+                MIplImage m = img.MIplImage;
+                byte* dataPtr = (byte*)m.imageData.ToPointer(); // obter apontador do inicio da imagem
+                int[,] array = new int[3, 256];
+                int width = img.Width;
+                int height = img.Height;
+                int nChan = m.nChannels; // numero de canais 3
+                int padding = m.widthStep - m.nChannels * m.width; // alinhamento (padding)
+                int x, y;
+                int cinza;
+
+                if (nChan == 3)
+                { // imagem em RGB
+                    for (y = 0; y < height; y++)
+                    {
+                        for (x = 0; x < width; x++)
+                        {
+                            //cinza = (dataPtr[0] + dataPtr[1] + dataPtr[2]) / 3;
+                            array[0, dataPtr[0]]++;
+                            array[1, dataPtr[1]]++;
+                            array[2, dataPtr[2]]++;
+
+                            dataPtr += nChan;
+                        }
+                        dataPtr += padding;
+                    }
+                }
+                return array;
+            }
+        }
+
         /// <summary>
         /// Convert to Black and White
         /// </summary>
@@ -248,8 +282,32 @@ namespace SS_OpenCV
 
             return idx;
         }
-        
 
-    
+        internal static double[] entropia(Emgu.CV.Image<Bgr, byte> img)
+        {
+
+            int[,] var = ImageClass.Histogram_RGB(img);
+            long n_total = img.Width*img.Height;
+            double[] ent = new double[3];
+            for (int i = 0; i < var.Length/3; i++)
+            {
+                int ch = 0;
+                double p = var[ch, i] / (double)n_total;
+                ent[ch] += p!=0 ?p * (Math.Log10(p) / Math.Log10(2)):0;
+                ch++;
+                p = var[ch, i] / (double) n_total;
+                ent[ch] += p!=0?p * (Math.Log10(p) / Math.Log10(2)):0;
+                ch++;
+                p = var[ch, i] / (double) n_total;
+                ent[ch] += p!=0?p * (Math.Log10(p) / Math.Log10(2)):0;
+
+            }
+            ent[0] = Math.Abs(ent[0]);
+            ent[1] = Math.Abs(ent[1]);
+            ent[2] = Math.Abs(ent[2]);
+            return ent;
+        }
+
+
     }
 }
