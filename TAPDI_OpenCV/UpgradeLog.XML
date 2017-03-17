@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SS_OpenCV">
+</Property><Property Name="Solution File" Value="C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV.sln">
+</Property><Property Name="User Options File" Value="C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV.suo">
+</Property><Property Name="Date" Value="quarta-feira, 29 de Fevereiro de 2012">
+</Property><Property Name="Time" Value="15:38">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SS_OpenCV.sln" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV.sln">
+</Event><Event ErrorLevel="0" Project="" Source="SS_OpenCV.suo" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV.suo">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\SS_OpenCV.csproj" Description="Project file successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\SS_OpenCV.csproj">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\TableForm.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\TableForm.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\TableForm.Designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\TableForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\histForm.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\histForm.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\histForm.designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\histForm.designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\ImageClass.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\ImageClass.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\InputBox.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\InputBox.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\InputBox.designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\InputBox.designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\InputXY.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\InputXY.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\InputXY.Designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\InputXY.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\MainForm.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\MainForm.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\MainForm.Designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\MainForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\Program.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\Program.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\Properties\Resources.Designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\Properties\Settings.Designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\ShowIMG.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\ShowIMG.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\ShowIMG.Designer.cs" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\ShowIMG.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\Properties\Settings.settings" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\TableForm.resx" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\TableForm.resx">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\histForm.resx" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\histForm.resx">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\InputBox.resx" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\InputBox.resx">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\InputXY.resx" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\InputXY.resx">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\MainForm.resx" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\MainForm.resx">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\Properties\Resources.resx" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\ShowIMG.resx" Description="File successfully backed up as C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\Backup\SS_OpenCV\ShowIMG.resx">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\SS_OpenCV.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SS_OpenCV" Source="SS_OpenCV\SS_OpenCV.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SS_OpenCV.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SS_OpenCV.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SS_OpenCV" Source="SS_OpenCV\SS_OpenCV.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

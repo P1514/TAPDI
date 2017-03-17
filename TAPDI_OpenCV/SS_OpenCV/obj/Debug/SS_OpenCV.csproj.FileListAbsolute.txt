@@ -1,0 +1,130 @@
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.pdb
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.xml
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\ZedGraph.xml
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.Util.xml
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.UI.xml
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\ResolveAssemblyReference.cache
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.TableForm.resources
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.histForm.resources
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputBox.resources
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputXY.resources
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.MainForm.resources
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.Properties.Resources.resources
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowIMG.resources
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csproj.GenerateResource.Cache
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.exe
+E:\Users\atm\Aulas\Tapdi\2010-2011\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.pdb
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.exe
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.pdb
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\ResolveAssemblyReference.cache
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.TableForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.histForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputBox.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputXY.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.MainForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.Properties.Resources.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowIMG.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.pdb
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.xml
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.UI.xml
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.Util.xml
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\ZedGraph.xml
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.CompressionTableForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\OpenCL.NET.dll
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\OpenCL.NET.xml
+C:\andre\Users\atm\Aulas\Tapdi\2011-2012\Pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\prog.cl
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.exe
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.pdb
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\ResolveAssemblyReference.cache
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.CompressionTableForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.TableForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.histForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputBox.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputXY.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.MainForm.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.Properties.Resources.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowIMG.resources
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.pdb
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.xml
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.UI.xml
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.Util.xml
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\OpenCL.NET.xml
+C:\andre\Users\atm\Aulas\Tapdi\2012-2013\Praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\ZedGraph.xml
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.exe
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.pdb
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.pdb
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.xml
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.UI.xml
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.Util.xml
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csprojResolveAssemblyReference.cache
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.CompressionTableForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.TableForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.histForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputBox.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputXY.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.MainForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.Properties.Resources.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowIMG.resources
+C:\andre\users\atm\Aulas\Tapdi\2013-2014\praticas\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csproj.GenerateResource.Cache
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.exe
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.pdb
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.pdb
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.xml
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.CV.UI.xml
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\bin\Debug\Emgu.Util.xml
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csprojResolveAssemblyReference.cache
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.CompressionTableForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.TableForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.histForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputBox.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputXY.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.MainForm.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.Properties.Resources.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowIMG.resources
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csproj.GenerateResource.Cache
+C:\andre\users\atm\Aulas\Tapdi\2014-2015\pratica\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.AuthorsForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csprojResolveAssemblyReference.cache
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.AuthorsForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.CompressionTableForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.TableForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.histForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputBox.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputXY.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.MainForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.Properties.Resources.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowIMG.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csproj.GenerateResource.Cache
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.exe
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.pdb
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.pdb
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowSingleIMG.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe.config
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2015_03_06\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.openCLForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe.config
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.exe
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\bin\Debug\SS_OpenCV.pdb
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csprojResolveAssemblyReference.cache
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.AuthorsForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.CompressionTableForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.openCLForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowSingleIMG.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.TableForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.histForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputBox.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.InputXY.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.MainForm.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.Properties.Resources.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.ShowIMG.resources
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.csproj.GenerateResource.Cache
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.exe
+C:\andre\Dropbox\JMF ATM\TAPDI\Pratica\TAPDI_OpenCV_2017_03_10\TAPDI_OpenCV\SS_OpenCV\obj\Debug\SS_OpenCV.pdb
