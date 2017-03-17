@@ -284,8 +284,29 @@ namespace SS_OpenCV
             Cursor = Cursors.Default; 
         }
 
+        private void compressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            if (img == null)
+                return;
+            imgUndo = img.Copy();
+            int[] hist_array = new int[img.Height];
+            hist_array =  ImageClass.histogram(imgUndo);
+            CompressionTableForm From_ = new CompressionTableForm(hist_array, imgUndo);
 
-        
+            From_.Show();
+            
+        }
 
+        private void entropiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (img == null)
+                return;
+            imgUndo = img.Copy();
+            double[] var = ImageClass.entropia(imgUndo);
+            Console.Out.WriteLine(var[0] + " / " + var[1] + " /  " + var[2]);
+
+        }
     }
 }
