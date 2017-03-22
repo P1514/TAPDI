@@ -305,7 +305,7 @@ namespace SS_OpenCV
                 return;
             imgUndo = img.Copy();
             double[] var = ImageClass.entropia(imgUndo);
-            Console.Out.WriteLine(var[0] + " / " + var[1] + " /  " + var[2]);
+            Console.Out.WriteLine(" BLUE: " + var[0] + " / GREEN: " + var[1] + " /  RED:" + var[2]); //blue ; green ; red
 
         }
     }

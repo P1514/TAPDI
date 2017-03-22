@@ -151,15 +151,13 @@ namespace SS_OpenCV
                 int nChan = m.nChannels; // numero de canais 3
                 int padding = m.widthStep - m.nChannels * m.width; // alinhamento (padding)
                 int x, y;
-                int cinza;
 
                 if (nChan == 3)
                 { // imagem em RGB
                     for (y = 0; y < height; y++)
                     {
                         for (x = 0; x < width; x++)
-                        {
-                            //cinza = (dataPtr[0] + dataPtr[1] + dataPtr[2]) / 3;
+                        {                            
                             array[0, dataPtr[0]]++;
                             array[1, dataPtr[1]]++;
                             array[2, dataPtr[2]]++;
@@ -283,17 +281,83 @@ namespace SS_OpenCV
             return idx;
         }
 
+        internal static void myRound(Image<Gray, float> img)
+        {
+            unsafe
+            {
+                // acesso directo à memoria da imagem (sequencial)
+                // top left to bottom right
+                MIplImage m = img.MIplImage;
+                int start = m.imageData.ToInt32();
+                float* dataPtr = (float*)start;
+                int h = img.Height;
+                int w = img.Width;
+                int x, y;
+                int nC = m.nChannels;
+                int wStep = m.widthStep - m.nChannels * m.width * sizeof(float);
+                byte gray;
+
+                for (y = 0; y < h; y++)
+                {
+                    for (x = 0; x < w; x++)
+                    {
+                        // converte BGR para cinza 
+                        *dataPtr = (float)Math.Round((double)*dataPtr);
+                        // avança apontador 
+                        dataPtr++;
+                    }
+                    //no fim da linha avança alinhamento
+                    dataPtr += wStep;
+                }
+            }
+        }
+
+        public static Image<Gray, float> GetQuantificationMatrix(bool LuminanceOrChrominance, int compfactor)
+        {
+            float[] LumQuant = {   16,11,10,16,24,40,51,61,
+                                12,12,14,19,26,58,60,55,
+                                14,13,16,24,40,57,69,56,
+                                14,17,22,29,51,87,80,62,
+                                18,22,37,56,68,109,103,77,
+                                24,35,55,64,81,104,113,92,
+                                49,64,78,87,103,121,120,101,
+                                72,92,95,98,112,100,103,99};
+
+            float[] ChrQuant = {17,18,24,47,99,99,99,99,
+                                18,21,26,66,99,99,99,99,
+                                24,26,56,99,99,99,99,99,
+                                47,66,99,99,99,99,99,99,
+                                99,99,99,99,99,99,99,99,
+                                99,99,99,99,99,99,99,99,
+                                99,99,99,99,99,99,99,99,
+                                99,99,99,99,99,99,99,99
+                                };
+            
+            Image<Gray, float> matrix = new Image<Gray, float>(8, 8);
+            int idx = 0;
+            float[] Quant = (LuminanceOrChrominance) ? LumQuant : ChrQuant;
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    matrix[y, x] = new Gray(Quant[idx++] * 100 / compfactor);
+                }
+            }
+            return matrix;
+        }
+
         internal static double[] entropia(Emgu.CV.Image<Bgr, byte> img)
         {
 
-            int[,] var = ImageClass.Histogram_RGB(img);
-            long n_total = img.Width*img.Height;
-            double[] ent = new double[3];
-            for (int i = 0; i < var.Length/3; i++)
+            int[,] var = ImageClass.Histogram_RGB(img); //vector com valores RGB
+            long n_total = img.Width * img.Height; //numero de pixeis da imagem
+            double[] ent = new double[3]; // vector para a entropia de cada cor
+            int aux = var.Length / 3;
+            for (int i = 0; i < aux; i++)
             {
                 int ch = 0;
-                double p = var[ch, i] / (double)n_total;
-                ent[ch] += p!=0 ?p * (Math.Log10(p) / Math.Log10(2)):0;
+                double p = var[ch, i] / (double)n_total; // calculo do valor de pi
+                ent[ch] += p!=0 ?p * (Math.Log10(p) / Math.Log10(2)):0; //se pi |= de 0 entao calcular o log
                 ch++;
                 p = var[ch, i] / (double) n_total;
                 ent[ch] += p!=0?p * (Math.Log10(p) / Math.Log10(2)):0;
@@ -302,6 +366,7 @@ namespace SS_OpenCV
                 ent[ch] += p!=0?p * (Math.Log10(p) / Math.Log10(2)):0;
 
             }
+            //transformar a entropia de negativa para positiva
             ent[0] = Math.Abs(ent[0]);
             ent[1] = Math.Abs(ent[1]);
             ent[2] = Math.Abs(ent[2]);
