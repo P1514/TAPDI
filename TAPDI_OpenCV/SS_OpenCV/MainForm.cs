@@ -308,5 +308,30 @@ namespace SS_OpenCV
             Console.Out.WriteLine(" BLUE: " + var[0] + " / GREEN: " + var[1] + " /  RED:" + var[2]); //blue ; green ; red
 
         }
+
+        private void aula2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void compressToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (img == null)
+                return;
+
+            Cursor = Cursors.WaitCursor; // bloquear cursor 
+            imgUndo = img.Copy();
+            InputBox formX = new InputBox("Compression factor for imagem");
+            formX.ShowDialog();
+
+            //int, double ou float ???
+            int factor = Convert.ToInt32(formX.ValueTextBox.Text);
+
+            Image<Bgr, byte> imgJPEG = ImageClass.CompressJPEG(img, factor);
+            ShowIMG.ShowIMGStatic(imgUndo, imgJPEG);
+          
+
+            Cursor = Cursors.Default; // cursor normal
+        }
     }
 }
