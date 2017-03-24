@@ -57,6 +57,8 @@
             this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aulasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aula1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entropiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aula2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aula3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.houghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,8 +70,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImageApl = new Emgu.CV.UI.ImageBox();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
-            this.compressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entropiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quantizationMatrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compressToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageApl)).BeginInit();
@@ -295,11 +297,29 @@
             this.aula1ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.aula1ToolStripMenuItem.Text = "Aula 1 - Compression";
             // 
+            // compressToolStripMenuItem
+            // 
+            this.compressToolStripMenuItem.Name = "compressToolStripMenuItem";
+            this.compressToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.compressToolStripMenuItem.Text = "Compress";
+            this.compressToolStripMenuItem.Click += new System.EventHandler(this.compressToolStripMenuItem_Click);
+            // 
+            // entropiaToolStripMenuItem
+            // 
+            this.entropiaToolStripMenuItem.Name = "entropiaToolStripMenuItem";
+            this.entropiaToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.entropiaToolStripMenuItem.Text = "Entropia";
+            this.entropiaToolStripMenuItem.Click += new System.EventHandler(this.entropiaToolStripMenuItem_Click);
+            // 
             // aula2ToolStripMenuItem
             // 
+            this.aula2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quantizationMatrixToolStripMenuItem,
+            this.compressToolStripMenuItem1});
             this.aula2ToolStripMenuItem.Name = "aula2ToolStripMenuItem";
             this.aula2ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.aula2ToolStripMenuItem.Text = "Aula 2 - JPEG";
+            this.aula2ToolStripMenuItem.Click += new System.EventHandler(this.aula2ToolStripMenuItem_Click);
             // 
             // aula3ToolStripMenuItem
             // 
@@ -368,19 +388,18 @@
             // 
             this.saveFileDialog2.Filter = "TXT|*.txt";
             // 
-            // compressToolStripMenuItem
+            // quantizationMatrixToolStripMenuItem
             // 
-            this.compressToolStripMenuItem.Name = "compressToolStripMenuItem";
-            this.compressToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.compressToolStripMenuItem.Text = "Compress";
-            this.compressToolStripMenuItem.Click += new System.EventHandler(this.compressToolStripMenuItem_Click);
+            this.quantizationMatrixToolStripMenuItem.Name = "quantizationMatrixToolStripMenuItem";
+            this.quantizationMatrixToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.quantizationMatrixToolStripMenuItem.Text = "Quantization Matrix";
             // 
-            // entropiaToolStripMenuItem
+            // compressToolStripMenuItem1
             // 
-            this.entropiaToolStripMenuItem.Name = "entropiaToolStripMenuItem";
-            this.entropiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.entropiaToolStripMenuItem.Text = "Entropia";
-            this.entropiaToolStripMenuItem.Click += new System.EventHandler(this.entropiaToolStripMenuItem_Click);
+            this.compressToolStripMenuItem1.Name = "compressToolStripMenuItem1";
+            this.compressToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
+            this.compressToolStripMenuItem1.Text = "Compress";
+            this.compressToolStripMenuItem1.Click += new System.EventHandler(this.compressToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -445,6 +464,8 @@
         private System.Windows.Forms.ToolStripMenuItem openCLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compressToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entropiaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quantizationMatrixToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compressToolStripMenuItem1;
     }
 }
 
