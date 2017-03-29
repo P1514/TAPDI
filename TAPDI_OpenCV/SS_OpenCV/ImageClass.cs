@@ -385,14 +385,15 @@ namespace SS_OpenCV
                 img.Resize(width * 8, height * 8, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);// Resize imagem original para 8x8
                 Rectangle aux_rect;
                 int x, y;
-                Image<Ycc, byte> imgYcc;
-                imgYcc = img.Convert<Ycc, byte>();
+                Image<Ycc, float> imgYcc;
+                imgYcc = img.Convert<Ycc, float>();
                 Image<Gray, float> Y = imgYcc[0].ConvertScale<float>(1, 0);
                 Image<Gray, float> Cb = imgYcc[1].ConvertScale<float>(0.5, 0);
                 Image<Gray, float> Cr = imgYcc[2].ConvertScale<float>(0.5, 0);
                 Image<Gray, float> Y88 = null;
                 Image<Gray, float> Cb88 = null;
                 Image<Gray, float> Cr88 = null;
+                Image<Ycc, float> blockYCC = new Image<Ycc, float>(8, 8);
 
 
                 //percorrer a imagem original em blocos de 8x8
@@ -401,37 +402,44 @@ namespace SS_OpenCV
                     for (x = 1; x < width; x++)
                     {
 
-                        aux_rect = new Rectangle((x - 1) * 8, (y - 1) * 8, x * 8 -1, y * 8 -1);
+                        aux_rect = new Rectangle((x - 1) * 8, (y - 1) * 8, 8, 8);
                         Y88 = Y.Copy(aux_rect);
                         Cb88 = Cb.Copy(aux_rect);
                         Cr88 = Cr.Copy(aux_rect);
 
-                        CvInvoke.cvDCT(Y88, Y88,Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_FORWARD);
+                        CvInvoke.cvDCT(Y88, Y88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_FORWARD);
                         CvInvoke.cvDCT(Cb88, Cb88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_FORWARD);
                         CvInvoke.cvDCT(Cr88, Cr88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_FORWARD);
 
-                        CvInvoke.cvDiv(Y88, GetQuantificationMatrix(true,factor), Y88, 1);
-                        CvInvoke.cvDiv(Cb88, GetQuantificationMatrix(false, factor), Y88, 1);
-                        CvInvoke.cvDiv(Cr88, GetQuantificationMatrix(false, factor), Y88, 1);
+                        CvInvoke.cvDiv(Y88, GetQuantificationMatrix(true, factor), Y88, 1);
+                        CvInvoke.cvDiv(Cb88, GetQuantificationMatrix(false, factor), Cb88, 1);
+                        CvInvoke.cvDiv(Cr88, GetQuantificationMatrix(false, factor), Cr88, 1);
 
                         myRound(Y88);
                         myRound(Cr88);
                         myRound(Cb88);
 
                         CvInvoke.cvMul(Y88, GetQuantificationMatrix(true, factor), Y88, 1);
-                        CvInvoke.cvMul(Y88, GetQuantificationMatrix(false, factor), Y88, 1);
-                        CvInvoke.cvMul(Y88, GetQuantificationMatrix(false, factor), Y88, 1);
+                        CvInvoke.cvMul(Cb88, GetQuantificationMatrix(false, factor), Cb88, 1);
+                        CvInvoke.cvMul(Cr88, GetQuantificationMatrix(false, factor), Cr88, 1);
 
                         CvInvoke.cvDCT(Y88, Y88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_INVERSE);
                         CvInvoke.cvDCT(Cb88, Cb88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_INVERSE);
                         CvInvoke.cvDCT(Cr88, Cr88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_INVERSE);
 
+                        //copy the processed block to the image
+                        imgYcc.ROI = new Rectangle((x - 1) * 8, (y - 1) * 8, 8, 8);
+
+                        // merge individual channels into one single Ycc image
+                        CvInvoke.cvMerge(Y88, Cb88, Cr88, IntPtr.Zero, blockYCC);
+
+                        // copy to final image
+                        blockYCC.CopyTo(imgYcc);
+                        imgYcc.ROI = Rectangle.Empty;
+
+
                     }
                 }
-
-                imgYcc[0] = Y88.ConvertScale<byte>(1, 0);
-                imgYcc[1] = Cb88.ConvertScale<byte>(2, 0);
-                imgYcc[2] = Cr88.ConvertScale<byte>(2, 0);
 
                 return imgYcc.Convert<Bgr, byte>();
 
