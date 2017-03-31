@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,14 @@
             this.compressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entropiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aula2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quantizationMatrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compressToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aula3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.componentesLigadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gPLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.watershedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noLabelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.houghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openCLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,8 +78,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ImageApl = new Emgu.CV.UI.ImageBox();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
-            this.quantizationMatrixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compressToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageApl)).BeginInit();
@@ -106,26 +112,26 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save As...";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(120, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -321,11 +327,65 @@
             this.aula2ToolStripMenuItem.Text = "Aula 2 - JPEG";
             this.aula2ToolStripMenuItem.Click += new System.EventHandler(this.aula2ToolStripMenuItem_Click);
             // 
+            // quantizationMatrixToolStripMenuItem
+            // 
+            this.quantizationMatrixToolStripMenuItem.Name = "quantizationMatrixToolStripMenuItem";
+            this.quantizationMatrixToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.quantizationMatrixToolStripMenuItem.Text = "Quantization Matrix";
+            // 
+            // compressToolStripMenuItem1
+            // 
+            this.compressToolStripMenuItem1.Name = "compressToolStripMenuItem1";
+            this.compressToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
+            this.compressToolStripMenuItem1.Text = "Compress";
+            this.compressToolStripMenuItem1.Click += new System.EventHandler(this.compressToolStripMenuItem1_Click);
+            // 
             // aula3ToolStripMenuItem
             // 
+            this.aula3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.componentesLigadosToolStripMenuItem,
+            this.gPLToolStripMenuItem,
+            this.watershedToolStripMenuItem});
             this.aula3ToolStripMenuItem.Name = "aula3ToolStripMenuItem";
             this.aula3ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.aula3ToolStripMenuItem.Text = "Aula 3 - Segmentation";
+            // 
+            // componentesLigadosToolStripMenuItem
+            // 
+            this.componentesLigadosToolStripMenuItem.Name = "componentesLigadosToolStripMenuItem";
+            this.componentesLigadosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.componentesLigadosToolStripMenuItem.Text = "Componentes Ligados";
+            this.componentesLigadosToolStripMenuItem.Click += new System.EventHandler(this.componentesLigadosToolStripMenuItem_Click);
+            // 
+            // gPLToolStripMenuItem
+            // 
+            this.gPLToolStripMenuItem.Name = "gPLToolStripMenuItem";
+            this.gPLToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.gPLToolStripMenuItem.Text = "GPL";
+            this.gPLToolStripMenuItem.Click += new System.EventHandler(this.gPLToolStripMenuItem_Click);
+            // 
+            // watershedToolStripMenuItem
+            // 
+            this.watershedToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelsToolStripMenuItem,
+            this.noLabelsToolStripMenuItem});
+            this.watershedToolStripMenuItem.Name = "watershedToolStripMenuItem";
+            this.watershedToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.watershedToolStripMenuItem.Text = "Watershed";
+            // 
+            // labelsToolStripMenuItem
+            // 
+            this.labelsToolStripMenuItem.Name = "labelsToolStripMenuItem";
+            this.labelsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.labelsToolStripMenuItem.Text = "Labels";
+            this.labelsToolStripMenuItem.Click += new System.EventHandler(this.labelsToolStripMenuItem_Click);
+            // 
+            // noLabelsToolStripMenuItem
+            // 
+            this.noLabelsToolStripMenuItem.Name = "noLabelsToolStripMenuItem";
+            this.noLabelsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.noLabelsToolStripMenuItem.Text = "No-Labels";
+            this.noLabelsToolStripMenuItem.Click += new System.EventHandler(this.noLabelsToolStripMenuItem_Click);
             // 
             // houghToolStripMenuItem
             // 
@@ -388,19 +448,6 @@
             // 
             this.saveFileDialog2.Filter = "TXT|*.txt";
             // 
-            // quantizationMatrixToolStripMenuItem
-            // 
-            this.quantizationMatrixToolStripMenuItem.Name = "quantizationMatrixToolStripMenuItem";
-            this.quantizationMatrixToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.quantizationMatrixToolStripMenuItem.Text = "Quantization Matrix";
-            // 
-            // compressToolStripMenuItem1
-            // 
-            this.compressToolStripMenuItem1.Name = "compressToolStripMenuItem1";
-            this.compressToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
-            this.compressToolStripMenuItem1.Text = "Compress";
-            this.compressToolStripMenuItem1.Click += new System.EventHandler(this.compressToolStripMenuItem1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +471,7 @@
         #endregion
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -466,6 +514,11 @@
         private System.Windows.Forms.ToolStripMenuItem entropiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quantizationMatrixToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compressToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem componentesLigadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gPLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem watershedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem noLabelsToolStripMenuItem;
     }
 }
 
