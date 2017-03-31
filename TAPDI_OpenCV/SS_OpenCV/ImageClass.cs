@@ -383,29 +383,28 @@ namespace SS_OpenCV
                 int width = (int) Math.Floor(img.Width/(double)8);      // largura da imagem em blocos de 8
                 int height = (int)Math.Floor(img.Height/(double)8);    // altura da imagem
                 img.Resize(width * 8, height * 8, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);// Resize imagem original para 8x8
-                Rectangle aux_rect;
                 int x, y;
                 Image<Ycc, float> imgYcc;
-                imgYcc = img.Convert<Ycc, float>();
+                imgYcc = img.Convert<Bgr, float>().Convert<Ycc,float>();
                 Image<Gray, float> Y = imgYcc[0].ConvertScale<float>(1, 0);
-                Image<Gray, float> Cb = imgYcc[1].ConvertScale<float>(0.5, 0);
-                Image<Gray, float> Cr = imgYcc[2].ConvertScale<float>(0.5, 0);
-                Image<Gray, float> Y88 = null;
-                Image<Gray, float> Cb88 = null;
-                Image<Gray, float> Cr88 = null;
+                Image<Gray, float> Cb = imgYcc[1].ConvertScale<float>(1, 0);
+                Image<Gray, float> Cr = imgYcc[2].ConvertScale<float>(1, 0);
+
+
+                Image<Gray, float> Y88 = new Image<Gray, float>(8,8);
+                Image<Gray, float> Cb88 = new Image<Gray, float>(8, 8);
+                Image<Gray, float> Cr88 = new Image<Gray, float>(8, 8);
                 Image<Ycc, float> blockYCC = new Image<Ycc, float>(8, 8);
 
 
                 //percorrer a imagem original em blocos de 8x8
-                for (y = 1; y < height; y++)
+                for (y = 0; y < height; y++)
                 {
-                    for (x = 1; x < width; x++)
+                    for (x = 0; x < width; x++)
                     {
-
-                        aux_rect = new Rectangle((x - 1) * 8, (y - 1) * 8, 8, 8);
-                        Y88 = Y.Copy(aux_rect);
-                        Cb88 = Cb.Copy(aux_rect);
-                        Cr88 = Cr.Copy(aux_rect);
+                        Y88 = Y.Copy(new Rectangle(x * 8, y * 8, 8, 8));
+                        Cb88 = Cb.Copy(new Rectangle(x * 8, y * 8, 8, 8));
+                        Cr88 = Cr.Copy(new Rectangle(x * 8, y * 8, 8, 8));
 
                         CvInvoke.cvDCT(Y88, Y88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_FORWARD);
                         CvInvoke.cvDCT(Cb88, Cb88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_FORWARD);
@@ -422,13 +421,13 @@ namespace SS_OpenCV
                         CvInvoke.cvMul(Y88, GetQuantificationMatrix(true, factor), Y88, 1);
                         CvInvoke.cvMul(Cb88, GetQuantificationMatrix(false, factor), Cb88, 1);
                         CvInvoke.cvMul(Cr88, GetQuantificationMatrix(false, factor), Cr88, 1);
-
+                        
                         CvInvoke.cvDCT(Y88, Y88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_INVERSE);
                         CvInvoke.cvDCT(Cb88, Cb88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_INVERSE);
                         CvInvoke.cvDCT(Cr88, Cr88, Emgu.CV.CvEnum.CV_DCT_TYPE.CV_DXT_INVERSE);
-
+                      
                         //copy the processed block to the image
-                        imgYcc.ROI = new Rectangle((x - 1) * 8, (y - 1) * 8, 8, 8);
+                        imgYcc.ROI = new Rectangle(x * 8, y * 8, 8, 8);
 
                         // merge individual channels into one single Ycc image
                         CvInvoke.cvMerge(Y88, Cb88, Cr88, IntPtr.Zero, blockYCC);
@@ -441,9 +440,487 @@ namespace SS_OpenCV
                     }
                 }
 
-                return imgYcc.Convert<Bgr, byte>();
+                return imgYcc.Convert<Bgr, float>().Convert<Bgr,byte>();
 
             }
+        }
+
+
+        /// <summary>
+        /// Compute image connected components 
+        /// </summary>
+        /// <param name="img"></param>
+        /// <returns></returns>
+        internal static Image<Gray, int> GetConnectedComponents(Image<Bgr, byte> img)
+        {
+            Image<Gray, byte> imgThresh = img.Convert<Gray, byte>();
+            CvInvoke.cvThreshold(imgThresh, imgThresh, 0, 255, Emgu.CV.CvEnum.THRESH.CV_THRESH_BINARY | Emgu.CV.CvEnum.THRESH.CV_THRESH_OTSU);
+
+            ShowSingleIMG.ShowIMGStatic(imgThresh);
+
+            Contour<Point> contours = imgThresh.FindContours(Emgu.CV.CvEnum.CHAIN_APPROX_METHOD.CV_CHAIN_APPROX_NONE, Emgu.CV.CvEnum.RETR_TYPE.CV_RETR_CCOMP);
+            Image<Gray, int> labelsImg = new Image<Gray, int>(imgThresh.Size);
+            int count = 1;
+
+            while (contours != null)
+            {
+                labelsImg.Draw(contours, new Gray(count), -1);
+                labelsImg.Draw(contours, new Gray(-10), 1);
+                contours = contours.HNext;
+                count++;
+            }
+
+            return labelsImg;
+        }
+
+
+
+        /// <summary>
+        /// Watershed with labels (Meyer)
+        /// </summary>
+        /// <param name="img"></param>
+        /// <param name="labels"></param>
+        /// <returns></returns>
+        internal static Image<Gray, int> GetWatershedFromLabels(Image<Bgr, byte> img, Image<Gray, byte> labels)
+        {
+            Image<Gray, int> watershedAux = labels.Convert<Gray, int>();
+
+            CvInvoke.cvWatershed(img, watershedAux);
+
+            return watershedAux;
+        }
+
+
+        /// <summary>
+        /// Watershed By Immersion (Vincent and Soille)
+        /// </summary>
+        /// <param name="img"></param>
+        /// <returns></returns>
+        internal static Image<Gray, int> GetWatershedByImmersion(Image<Bgr, byte> img)
+        {
+            WatershedGrayscale wt = new WatershedGrayscale();
+            Image<Gray, byte> wtImg = img.Convert<Gray, byte>();
+            wt.ProcessFilter(wtImg.Not());
+            wtImg.SetZero();
+            Image<Gray, int> wtOutimg = new Image<Gray, int>(img.Size);
+            wt.DrawWatershedLines(wtOutimg);
+
+            return wtOutimg;
+        }
+
+        /// <summary>
+        /// Get Gradient Path Labelling (GPL) segmnentation 
+        /// </summary>
+        /// <param name="img">image</param>
+        /// <returns></returns>
+        internal static Image<Bgr, byte> GetGPL(Image<Bgr, byte> img)
+        {
+            GPL_lib.GPL_lib gpl = new GPL_lib.GPL_lib(img, false);
+
+            gpl.ShowConfigForm();
+
+            return gpl.GetImage();
+        }
+
+        public class WatershedPixel
+        {
+            public int X;
+            public int Y;
+            public int Height;
+            // labels the pixel as belonging to a unique basin or as a part of the watershed line
+            public int Label;
+            // Distance is a work image of distances
+            public int Distance;
+
+            public WatershedPixel()
+            {
+                this.X = -1;
+                this.Y = -1;
+                this.Height = -1000;
+                this.Label = -1000;
+                this.Distance = -1000;
+            }
+
+            public WatershedPixel(int x, int y)
+            {
+                this.X = x;
+                this.Y = y;
+                this.Height = -1000;
+                this.Label = WatershedCommon.INIT;
+                this.Distance = 0;
+            }
+
+            public WatershedPixel(int x, int y, int height)
+            {
+                this.X = x;
+                this.Y = y;
+                this.Height = height;
+                this.Label = WatershedCommon.INIT;
+                this.Distance = 0;
+            }
+
+            public override bool Equals(Object obj)
+            {
+                WatershedPixel p = (WatershedPixel)obj;
+                return (X == p.X && X == p.Y);
+            }
+
+            public override int GetHashCode()
+            {
+                return X;
+            }
+            public override string ToString()
+            {
+                return "Height = " + Height + "; X = " + X.ToString() + ", Y = " + Y.ToString() +
+                       "; Label = " + Label.ToString() + "; Distance = " + Distance.ToString();
+            }
+        }
+
+        public class WatershedGrayscale
+        {
+            #region Variables
+            private WatershedPixel FictitiousPixel = new WatershedPixel();
+            private int _currentLabel = 0;
+            private int _currentDistance = 0;
+            private FifoQueue _fifoQueue = new FifoQueue();
+            // each pixel can be accesesd from 2 places: a dictionary for faster direct lookup of neighbouring pixels 
+            // or from a height ordered list
+            // sorted array of pixels according to height
+            private List<List<WatershedPixel>> _heightSortedList;
+            // string in the form "X,Y" is used as a key for the dictionary lookup of a pixel
+            private Dictionary<string, WatershedPixel> _pixelMap;
+            private int _watershedPixelCount = 0;
+            private int _numberOfNeighbours = 8;
+            private bool _borderInWhite;
+            private int _pictureWidth = 0;
+            private int _pictureHeight = 0;
+            #endregion
+
+            #region Constructors
+            public WatershedGrayscale()
+                : this(8)
+            { }
+
+            public WatershedGrayscale(int numberOfNeighbours)
+            {
+                if (numberOfNeighbours != 8 && numberOfNeighbours != 4)
+                    throw new Exception("Invalid number of neighbour pixels to check. Valid values are 4 and 8.");
+                _borderInWhite = true;
+                _numberOfNeighbours = numberOfNeighbours;
+                _heightSortedList = new List<List<WatershedPixel>>(256);
+                for (int i = 0; i < 256; i++)
+                    _heightSortedList.Add(new List<WatershedPixel>());
+            }
+            #endregion
+
+            #region Properties
+            /// <summary>
+            /// number of neighbours to check for each pixel. valid values are 8 and 4
+            /// </summary>
+            public int NumberOfNeighbours
+            {
+                get { return _numberOfNeighbours; }
+                set
+                {
+                    if (value != 8 && value != 4)
+                        throw new Exception("Invalid number of neighbour pixels to check. Valid values are 4 and 8.");
+                    _numberOfNeighbours = value;
+                }
+            }
+
+            /// <summary>
+            /// Number of labels/basins found
+            /// </summary>
+            public int LabelCount
+            {
+                get { return _currentLabel; }
+                set { _currentLabel = value; }
+            }
+
+            /// <summary>
+            /// True: border is drawn in white. False: border is drawn in black
+            /// </summary>
+            /// <value></value>
+            public bool BorderInWhite
+            {
+                get { return _borderInWhite; }
+                set { _borderInWhite = value; }
+            }
+            #endregion
+
+            private void CreatePixelMapAndHeightSortedArray(Image<Gray, byte> wtImg)
+            {
+                MIplImage data = wtImg.MIplImage;
+                _pictureWidth = data.width;
+                _pictureHeight = data.height;
+                // pixel map holds every pixel thus size of (_pictureWidth * _pictureHeight)
+                _pixelMap = new Dictionary<string, WatershedPixel>(_pictureWidth * _pictureHeight);
+                unsafe
+                {
+                    int offset = data.widthStep - data.width;
+                    byte* ptr = (byte*)(data.imageData);
+
+                    // get histogram of all values in grey = height
+                    for (int y = 0; y < data.height; y++)
+                    {
+                        for (int x = 0; x < data.width; x++, ptr++)
+                        {
+                            WatershedPixel p = new WatershedPixel(x, y, *ptr);
+                            // add every pixel to the pixel map
+                            _pixelMap.Add(p.X.ToString() + "," + p.Y.ToString(), p);
+                            _heightSortedList[*ptr].Add(p);
+                        }
+                        ptr += offset;
+                    }
+                }
+                this._currentLabel = 0;
+            }
+
+            private void Segment()
+            {
+                // Geodesic SKIZ (skeleton by influence zones) of each level height
+                for (int h = 0; h < _heightSortedList.Count; h++)
+                {
+                    // get all pixels for current height
+                    foreach (WatershedPixel heightSortedPixel in _heightSortedList[h])
+                    {
+                        heightSortedPixel.Label = WatershedCommon.MASK;
+                        // for each pixel on current height get neighbouring pixels
+                        List<WatershedPixel> neighbouringPixels = GetNeighbouringPixels(heightSortedPixel);
+                        // initialize queue with neighbours at level h of current basins or watersheds
+                        foreach (WatershedPixel neighbouringPixel in neighbouringPixels)
+                        {
+                            if (neighbouringPixel.Label > 0 || neighbouringPixel.Label == WatershedCommon.WSHED)
+                            {
+                                heightSortedPixel.Distance = 1;
+                                _fifoQueue.AddToEnd(heightSortedPixel);
+                                break;
+                            }
+                        }
+                    }
+                    _currentDistance = 1;
+                    _fifoQueue.AddToEnd(FictitiousPixel);
+                    // extend basins
+                    while (true)
+                    {
+                        WatershedPixel p = _fifoQueue.RemoveAtFront();
+                        if (p.Equals(FictitiousPixel))
+                        {
+                            if (_fifoQueue.IsEmpty)
+                                break;
+                            else
+                            {
+                                _fifoQueue.AddToEnd(FictitiousPixel);
+                                _currentDistance++;
+                                p = _fifoQueue.RemoveAtFront();
+                            }
+                        }
+                        List<WatershedPixel> neighbouringPixels = GetNeighbouringPixels(p);
+                        // labelling p by inspecting neighbours
+                        foreach (WatershedPixel neighbouringPixel in neighbouringPixels)
+                        {
+                            // neighbouringPixel belongs to an existing basin or to watersheds
+                            // in the original algorithm the condition is:
+                            //   if (neighbouringPixel.Distance < currentDistance && 
+                            //      (neighbouringPixel.Label > 0 || neighbouringPixel.Label == WatershedCommon.WSHED))
+                            //   but this returns incomplete borders so the this one is used                        
+                            if (neighbouringPixel.Distance <= _currentDistance &&
+                               (neighbouringPixel.Label > 0 || neighbouringPixel.Label == WatershedCommon.WSHED))
+                            {
+                                if (neighbouringPixel.Label > 0)
+                                {
+                                    // the commented condition is also in the original algorithm 
+                                    // but it also gives incomplete borders
+                                    if (p.Label == WatershedCommon.MASK /*|| p.Label == WatershedCommon.WSHED*/)
+                                        p.Label = neighbouringPixel.Label;
+                                    else if (p.Label != neighbouringPixel.Label)
+                                    {
+                                        p.Label = WatershedCommon.WSHED;
+                                        _watershedPixelCount++;
+                                    }
+                                }
+                                else if (p.Label == WatershedCommon.MASK)
+                                {
+                                    p.Label = WatershedCommon.WSHED;
+                                    _watershedPixelCount++;
+                                }
+                            }
+                            // neighbouringPixel is plateau pixel
+                            else if (neighbouringPixel.Label == WatershedCommon.MASK && neighbouringPixel.Distance == 0)
+                            {
+                                neighbouringPixel.Distance = _currentDistance + 1;
+                                _fifoQueue.AddToEnd(neighbouringPixel);
+                            }
+                        }
+                    }
+                    // detect and process new minima at height level h
+                    foreach (WatershedPixel p in _heightSortedList[h])
+                    {
+                        // reset distance to zero
+                        p.Distance = 0;
+                        // if true then p is inside a new minimum 
+                        if (p.Label == WatershedCommon.MASK)
+                        {
+                            // create new label
+                            _currentLabel++;
+                            p.Label = _currentLabel;
+                            _fifoQueue.AddToEnd(p);
+                            while (!_fifoQueue.IsEmpty)
+                            {
+                                WatershedPixel q = _fifoQueue.RemoveAtFront();
+                                // check neighbours of q
+                                List<WatershedPixel> neighbouringPixels = GetNeighbouringPixels(q);
+                                foreach (WatershedPixel neighbouringPixel in neighbouringPixels)
+                                {
+                                    if (neighbouringPixel.Label == WatershedCommon.MASK)
+                                    {
+                                        neighbouringPixel.Label = _currentLabel;
+                                        _fifoQueue.AddToEnd(neighbouringPixel);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            private List<WatershedPixel> GetNeighbouringPixels(WatershedPixel centerPixel)
+            {
+                List<WatershedPixel> temp = new List<WatershedPixel>();
+                if (_numberOfNeighbours == 8)
+                {
+                    /*
+                    CP = Center pixel
+                    (X,Y) -- get all 8 connected 
+                    |-1,-1|0,-1|1,-1|
+                    |-1, 0| CP |1, 0|
+                    |-1,+1|0,+1|1,+1|
+                    */
+                    // -1, -1                
+                    if ((centerPixel.X - 1) >= 0 && (centerPixel.Y - 1) >= 0)
+                        temp.Add(_pixelMap[(centerPixel.X - 1).ToString() + "," + (centerPixel.Y - 1).ToString()]);
+                    //  0, -1
+                    if ((centerPixel.Y - 1) >= 0)
+                        temp.Add(_pixelMap[centerPixel.X.ToString() + "," + (centerPixel.Y - 1).ToString()]);
+                    //  1, -1
+                    if ((centerPixel.X + 1) < _pictureWidth && (centerPixel.Y - 1) >= 0)
+                        temp.Add(_pixelMap[(centerPixel.X + 1).ToString() + "," + (centerPixel.Y - 1).ToString()]);
+                    // -1, 0
+                    if ((centerPixel.X - 1) >= 0)
+                        temp.Add(_pixelMap[(centerPixel.X - 1).ToString() + "," + centerPixel.Y.ToString()]);
+                    //  1, 0
+                    if ((centerPixel.X + 1) < _pictureWidth)
+                        temp.Add(_pixelMap[(centerPixel.X + 1).ToString() + "," + centerPixel.Y.ToString()]);
+                    // -1, 1
+                    if ((centerPixel.X - 1) >= 0 && (centerPixel.Y + 1) < _pictureHeight)
+                        temp.Add(_pixelMap[(centerPixel.X - 1).ToString() + "," + (centerPixel.Y + 1).ToString()]);
+                    //  0, 1
+                    if ((centerPixel.Y + 1) < _pictureHeight)
+                        temp.Add(_pixelMap[centerPixel.X.ToString() + "," + (centerPixel.Y + 1).ToString()]);
+                    //  1, 1
+                    if ((centerPixel.X + 1) < _pictureWidth && (centerPixel.Y + 1) < _pictureHeight)
+                        temp.Add(_pixelMap[(centerPixel.X + 1).ToString() + "," + (centerPixel.Y + 1).ToString()]);
+                }
+                else
+                {
+                    /*
+                    CP = Center pixel, N/A = not used
+                    (X,Y) -- get only 4 connected 
+                    | N/A |0,-1| N/A |
+                    |-1, 0| CP |+1, 0|
+                    | N/A |0,+1| N/A |
+                    */
+                    //  -1, 0
+                    if ((centerPixel.X - 1) >= 0)
+                        temp.Add(_pixelMap[(centerPixel.X - 1).ToString() + "," + centerPixel.Y.ToString()]);
+                    //  0, -1
+                    if ((centerPixel.Y - 1) >= 0)
+                        temp.Add(_pixelMap[centerPixel.X.ToString() + "," + (centerPixel.Y - 1).ToString()]);
+                    //  1, 0
+                    if ((centerPixel.X + 1) < _pictureWidth)
+                        temp.Add(_pixelMap[(centerPixel.X + 1).ToString() + "," + centerPixel.Y.ToString()]);
+                    //  0, 1
+                    if ((centerPixel.Y + 1) < _pictureHeight)
+                        temp.Add(_pixelMap[centerPixel.X.ToString() + "," + (centerPixel.Y + 1).ToString()]);
+                }
+                return temp;
+            }
+
+            public void DrawWatershedLines(Image<Gray, int> wtImg)
+            {
+                MIplImage data = wtImg.MIplImage;
+                if (_watershedPixelCount == 0)
+                    return;
+
+                int watershedColor = -1;
+
+                unsafe
+                {
+                    int offset = data.widthStep - data.width * sizeof(int);
+                    int* ptr = (int*)(data.imageData);
+
+                    for (int y = 0; y < data.height; y++)
+                    {
+                        for (int x = 0; x < data.width; x++, ptr++)
+                        {
+                            // if the pixel in our map is watershed pixel then draw it
+                            if (_pixelMap[x.ToString() + "," + y.ToString()].Label == WatershedCommon.WSHED)
+                                *ptr = watershedColor;
+                            else
+                                *ptr = _pixelMap[x.ToString() + "," + y.ToString()].Label;
+                        }
+                        ptr += offset;
+                    }
+                }
+            }
+
+            public void ProcessFilter(Image<Gray, byte> wtImg)
+            {
+                CreatePixelMapAndHeightSortedArray(wtImg);
+                Segment();
+                //DrawWatershedLines(wtImg);
+            }
+        }
+
+        public class FifoQueue
+        {
+            List<WatershedPixel> queue = new List<WatershedPixel>();
+
+            public int Count
+            {
+                get { return queue.Count; }
+            }
+
+            public void AddToEnd(WatershedPixel p)
+            {
+                queue.Add(p);
+            }
+
+            public WatershedPixel RemoveAtFront()
+            {
+                WatershedPixel temp = queue[0];
+                queue.RemoveAt(0);
+                return temp;
+            }
+
+            public bool IsEmpty
+            {
+                get { return (queue.Count == 0); }
+            }
+
+            public override string ToString()
+            {
+                return base.ToString() + " Count = " + queue.Count.ToString();
+            }
+        }
+
+        public class WatershedCommon
+        {
+            #region Constants
+            public const int INIT = -1;
+            public const int MASK = -2;
+            public const int WSHED = 0;
+            #endregion
         }
 
 

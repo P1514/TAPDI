@@ -333,5 +333,61 @@ namespace SS_OpenCV
 
             Cursor = Cursors.Default; // cursor normal
         }
+
+        private void wateshedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gPLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (img == null) return;
+
+            Cursor = Cursors.WaitCursor; // bloquear cursor 
+            imgUndo = img.Copy();
+
+            ImageClass.GetGPL(img);
+
+            Cursor = Cursors.Default; // cursor normal
+        }
+
+        private void labelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (img == null) return;
+
+            Cursor = Cursors.WaitCursor; // bloquear cursor 
+            imgUndo = img.Copy();
+            Image<Gray, byte> img2=null;
+            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                img2 = new Image<Gray, byte>(openFileDialog2.FileName);// Pedido da Imagem de mascaras
+            }
+
+            ShowIMG.ShowIMGStatic(img,ImageClass.GetWatershedFromLabels(img, img2));
+
+            Cursor = Cursors.Default; // cursor normal
+        }
+
+        private void noLabelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (img == null) return;
+
+            Cursor = Cursors.WaitCursor; // bloquear cursor 
+            imgUndo = img.Copy();
+            ShowIMG.ShowIMGStatic(img, ImageClass.GetWatershedByImmersion(img.SmoothBlur(15, 15)));// Aplicado filtro de media 15,15
+
+            Cursor = Cursors.Default; // cursor normal
+        }
+
+        private void componentesLigadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (img == null) return;
+
+            Cursor = Cursors.WaitCursor; // bloquear cursor 
+            imgUndo = img.Copy();
+            ShowIMG.ShowIMGStatic(img, ImageClass.GetConnectedComponents(img));
+
+            Cursor = Cursors.Default; // cursor normal
+        }
     }
 }
